@@ -192,7 +192,7 @@ ReactDOM.render (
 
 ## Manipulating the state
 
-´´´JS
+```JS
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
@@ -221,4 +221,41 @@ ReactDOM.render (
     document.getElementById('root')
 ); 
 
-´´´´
+```
+
+```JS
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+
+class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {messages: ['love', 'sex', 'code']};
+    } 
+    
+    escreve() {
+      this.setState({messages: this.state.messages.push('text')});
+    }
+    
+
+    render() {
+
+      let listMessages = this.state.messages.map((msg) => {
+        return (<li>{msg}</li>)
+      })
+
+        return (
+            <div className="app">
+              <button onClick={this.escreve.bind(this)}>save</button>
+              {listMessages}
+            </div>
+        );
+    } 
+}
+
+ReactDOM.render (
+    <App />,
+    document.getElementById('root')
+);
+
+```
