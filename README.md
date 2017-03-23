@@ -1,5 +1,36 @@
 # React 
 
+## Table of contents
+
+- [ ] [Setup](#setup)
+- [x] [Component](#component)
+- [x] [Composition](#composition)
+- [x] [Module component](#module-component)
+- [x] [Props](#props)
+- [x] [State](#state)
+- [x] [Methods and Events](#methods-and-events)
+- [x] [State manipulation](#state-manipulation)
+- [ ] [Refs](#refs)
+- [ ] [Keys](#keys)
+- [ ] [Component Lifecycle](#component-lifecycle)
+- [ ] [Inline Styles](#inline-styles)
+- [ ] [React Router](#react-router)
+- [ ] [Storybook](#storybook)
+- [ ] [Tests](#tests)
+- [ ] [a11y](#a11y)
+- [ ] [API comunication](#api-comunication)
+- [ ] [Flux](#flux)
+- [ ] [Redux](#redux)
+- [ ] [MobX](#mobx)
+- [ ] [Best Practices](#best-practices)
+- [ ] [Concepts](Concepts)
+    - [ ] [Immutable](#immutable)
+    - [ ] [Functionnal programing](#functionnal-programing)
+    - [ ] [Virtual Dom](#virtual-dom)
+
+## Setup
+
+
 ## Component
 
 ```JS
@@ -57,7 +88,7 @@ ReactDOM.render(
 
 ```
 
-## SubComponent
+## Module component
 
 ```JS
 //App.js
@@ -190,7 +221,7 @@ ReactDOM.render (
 
 ```
 
-## Manipulating the state
+## State manipulation
 
 ```JS
 import React, { Component } from 'react';
