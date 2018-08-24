@@ -1,11 +1,16 @@
-# React 
+# 🌈 React Cheat Sheet
+
+> A simple cheat sheet for facilitate the process in the workshops and event about React. Let me know if you see any problem, I'll love a pull request for improve this document.
 
 ## Table of contents
 
-- [ ] [Setup](#setup)
+- [x] [Installation](#installation)
+- [x] [No configuration](#no-configuration)
+- [x] [ReactDOM](#reactdom)
 - [x] [Component](#component)
 - [x] [Composition](#composition)
 - [x] [Module component](#module-component)
+- [x] [Hot Module Replacement](#hot-module-replacement)
 - [x] [Props](#props)
 - [x] [State](#state)
 - [x] [Methods and Events](#methods-and-events)
@@ -28,8 +33,58 @@
     - [ ] [Functionnal programing](#functionnal-programing)
     - [ ] [Virtual Dom](#virtual-dom)
 
-## Setup
+---
 
+## Installation
+
+* Add the tags in your HTML
+    ```HTML
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    ```
+* Run this scripts in your terminal
+    ```SSH
+    $ npm install react react-dom
+    ```
+ 
+---
+ 
+## No configuration
+
+Just start with React no configuration (run the scripts bellow in your terminal)
+* Install the React
+    ```SSH
+    $ npm install -g create-react-app
+    ```
+* Create your application (change `myApp` to your application name)
+    ```
+    $ create-react-app myApp
+    ```
+* Go to the application folder and install the dependencies
+    ```
+    $ cd myApp
+    $ npm install
+    ```
+* Start your application
+    ```
+    $ npm start
+    ```
+* Go to the browser by `URL` bellow and see your beautiful application
+    [localhost:8080](http://localhost:8080)
+    
+---
+
+## ReactDOM
+
+```JS
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+
+class MyComponent extends Component {
+    ReactDOM.render( <h1>Hello React Ladies</h1>, document.getElementById('root') );
+```
+
+---
 
 ## Component
 
@@ -131,6 +186,27 @@ ReactDOM.render (
 );
 
 ```
+
+---
+
+## Hot Module Replacement
+* Retain application state which is lost during a full reload.
+* Save valuable development time by only updating what's changed.
+* Tweak styling faster -- almost comparable to changing styles in the browser's debugger.
+
+```JS
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import MyComponent from './MyComponent';
+
+ReactDOM.render( <MyComponent />, document.getElementById('root') );
+
+if (module.hot) {
+    module.hot.accept();
+}
+```
+
+---
 
 ## Props
 
