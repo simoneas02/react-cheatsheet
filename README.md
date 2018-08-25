@@ -32,6 +32,9 @@
     - [ ] [Immutable](#immutable)
     - [ ] [Functionnal programing](#functionnal-programing)
     - [ ] [Virtual Dom](#virtual-dom)
+- [ ] ES6
+    - [ ] Arrow Functions
+        - [ ] Syntax
 
 ---
 
@@ -69,8 +72,8 @@ Just start with React no configuration (run the scripts bellow in your terminal)
     ```
     $ npm start
     ```
-* Go to the browser by `URL` bellow and see your beautiful application
-    [localhost:8080](http://localhost:8080)
+* Go to the browser by `URL` bellow and see your beautiful application   
+    - [localhost:8080](http://localhost:8080)
     
 ---
 
@@ -80,8 +83,7 @@ Just start with React no configuration (run the scripts bellow in your terminal)
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-class MyComponent extends Component {
-    ReactDOM.render( <h1>Hello React Ladies</h1>, document.getElementById('root') );
+ReactDOM.render( <h1>Hello React Ladies</h1>, document.getElementById('root') );
 ```
 
 ---
@@ -163,7 +165,6 @@ export default App
 ```
 
 ```JS
-//Index.js
 //Index.js
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
@@ -366,3 +367,28 @@ ReactDOM.render (
 );
 
 ```
+
+---
+
+#ES6
+
+## Arrow Functions
+
+## Syntax
+
+- Basic syntax
+    ```JS
+    ( param1, param2, ..., paramN ) => { statements }
+    ( param1, param2, ..., paramN ) =>  expression
+    ( singleParam ) => { statements }
+    singleParam => { statements }
+    () => { statements }
+    ```
+- Advanced syntax
+    ```JS
+    params => ({ foo: bar }) /* return an object literal expression */
+    ( param1, param2, ...ladies ) =>  { statements } /* rest parameters */
+    ( language = JS, ladies, ..., framework = React ) => { statements } /* default parameters */
+    const sum = ( [num1, num2] = [1, 2], { x: num3 } = { x : num1 + num2 } ) => num1 + num2 + num3  /*  destructuring within the parameter list */
+    sum() /* 6 */
+    ```
