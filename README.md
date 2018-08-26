@@ -7,7 +7,8 @@
 - [x] [Installation](#installation)
 - [x] [No configuration](#no-configuration)
 - [x] [ReactDOM](#reactdom)
-- [x] [Component](#component)
+- [x] [Functional Stateless Component](#functional-stateless-component)
+- [x] [Class Component](#class-component)
 - [x] [Composition](#composition)
 - [x] [Module component](#module-component)
 - [x] [Hot Module Replacement](#hot-module-replacement)
@@ -88,27 +89,74 @@ ReactDOM.render( <h1>Hello React Ladies</h1>, document.getElementById('root') );
 
 ---
 
-## Component
+## Functional Stateless Component
+
+```JS
+import React from 'react';
+
+const Button = () =>
+    <button> Apply</button>
+
+export default Button;
+```
+
+```JS
+import React from 'react';
+
+const Button = ({ onClick, className = 'button', children  }) =>
+    <button
+        onClick={ onClick }
+        className={ className }
+        type='button'
+    >
+        { children }
+    </button>
+
+export default Button;
+```
+
+---
+
+## Class Component
 
 ```JS
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 
 class MyComponent extends Component {
     render() {
         return (
             <div className="main">
-                <h1>Olá Mundo</h1>
+                <h1>Helo Devas</h1>
             </div>
         );
     }
 }
 
-ReactDOM.render(
-    <MyComponent />, 
-    document.getElementById('root')
-);
+export default MyComponent;
 ```
+
+```JS
+import React, { Component } from 'react';
+
+class MyComponent extends Component {
+    constructor ( props ) {
+    super(props);
+    this.state = { message: 'Helo Devas' }
+    };
+
+    render() {
+        return (
+            <div className="main">
+                <h1>{ this.state.message }</h1>
+            </div>
+        );
+    }
+}
+
+export default MyComponent;
+```
+
+---
 ## Composition
 
 ```JS
@@ -370,25 +418,32 @@ ReactDOM.render (
 
 ---
 
-#ES6
+# ES6
 
 ## Arrow Functions
 
-## Syntax
+### Syntax
 
 - Basic syntax
     ```JS
     ( param1, param2, ..., paramN ) => { statements }
+
     ( param1, param2, ..., paramN ) =>  expression
+
     ( singleParam ) => { statements }
+
     singleParam => { statements }
+
     () => { statements }
     ```
 - Advanced syntax
     ```JS
     params => ({ foo: bar }) /* return an object literal expression */
+
     ( param1, param2, ...ladies ) =>  { statements } /* rest parameters */
+
     ( language = JS, ladies, ..., framework = React ) => { statements } /* default parameters */
+
     const sum = ( [num1, num2] = [1, 2], { x: num3 } = { x : num1 + num2 } ) => num1 + num2 + num3  /*  destructuring within the parameter list */
     sum() /* 6 */
     ```
