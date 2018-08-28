@@ -16,6 +16,7 @@
 - [x] [State](#state)
 - [x] [Methods and Events](#methods-and-events)
 - [x] [State manipulation](#state-manipulation)
+- [x] [Bindings](#bindings)
 - [ ] [Refs](#refs)
 - [ ] [Keys](#keys)
 - [ ] [Component Lifecycle](#component-lifecycle)
@@ -138,7 +139,7 @@ export default MyComponent;
 ```JS
 import React, { Component } from 'react';
 
-class MyComponent extends Component {
+class MyComponent () extends Compnent {
     constructor ( props ) {
     super(props);
     this.state = { message: 'Helo Devas' }
@@ -154,9 +155,11 @@ class MyComponent extends Component {
 }
 
 export default MyComponent;
+
 ```
 
----
+--- 
+
 ## Composition
 
 ```JS
@@ -283,11 +286,7 @@ class Index extends Component {
     }
 }
 
-ReactDOM.render (
-    <Index />,
-    document.getElementById('root')
-);
-
+export default Index;
 ```
 
 ## State
@@ -311,11 +310,7 @@ class App extends Component {
     }
 }
 
-ReactDOM.render (
-    <App />,
-    document.getElementById('root')
-);
-
+export default App;
 ```
 
 ## Methods and Events
@@ -339,11 +334,7 @@ class App extends Component {
     }
 }
 
-ReactDOM.render (
-    <App />,
-    document.getElementById('root')
-);
-
+export default App;
 ```
 
 ## State manipulation
@@ -355,65 +346,77 @@ import ReactDOM from 'react-dom';
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {messages: 0};
+        this.state = { like: 0 };
     } 
 
-    escreve() {
-      this.setState({messages: this.state.messages + 1});
+    isLiked = () => {
+      this.setState({ like: this.state.like + 1});
     }
 
     render() {
         return (
             <div className="app">
-                <p>My messages: {this.state.messages}</p>
-                <button onClick={this.escreve.bind(this)}>save</button>
+                <button onClick={ this.isLiked }>{ this.state.like }</button>
             </div>
         );
     }
 }
 
-ReactDOM.render (
-    <App />,
-    document.getElementById('root')
-); 
-
+export default App;
 ```
+
+---
+
+## Bindings
 
 ```JS
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 
-class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {messages: ['love', 'sex', 'code']};
-    } 
-    
-    escreve() {
-      this.setState({messages: this.state.messages.push('text')});
+class MyComponent extends Component {
+    constructor () {
+    super();
+
+    this.state = { list: list };
+
+    this.doSomethingElse = this.doSomethingElse.bind(this);
+    };
+
+    doSomething = () => {
+        // do something
+        /* if don't have a parameter, you can use arrow function
+           and don't need to use bind */
     }
-    
+
+    doSomethingElse ( itemId ) {
+        // do something else
+    }
 
     render() {
-
-      let listMessages = this.state.messages.map((msg) => {
-        return (<li>{msg}</li>)
-      })
-
         return (
-            <div className="app">
-              <button onClick={this.escreve.bind(this)}>save</button>
-              {listMessages}
+            <div className="main">
+                {this.state.list.map( item =>
+                ...
+                    <button 
+                        onClick={ this.doSomething } 
+                        type="button"
+                    >
+                        Some Thing
+                    </button>
+
+                    <button 
+                        onClick={ () => this.doSomethingElse( item.objectID ) } 
+                        type="button"
+                    >
+                        Some Thing Else
+                    </button>
+                ...
+                )}
             </div>
         );
-    } 
+    }
 }
 
-ReactDOM.render (
-    <App />,
-    document.getElementById('root')
-);
-
+export default MyComponent;
 ```
 
 ---
