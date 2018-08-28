@@ -34,9 +34,13 @@
     - [ ] [Immutable](#immutable)
     - [ ] [Functionnal programing](#functionnal-programing)
     - [ ] [Virtual Dom](#virtual-dom)
-- [ ] ES6
-    - [ ] Arrow Functions
-        - [ ] Syntax
+- [x] [ES6](#es6)
+    - [x] [Arrow Functions](#arrow-functions)
+        - [x] [Syntax](#syntax)
+        - [x] [Advanced Syntax](#advanced-syntax)
+    - [x] [Spread Operations](#spread-operations)
+        - [x] [Spread in array literals](#spread-in-array-literals)
+        - [x] [Spread in object literals](#spread-in-object-literals)
 
 ---
 
@@ -264,7 +268,6 @@ if (module.hot) {
 
 ```JS
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 
 class App extends Component {
     render() {
@@ -293,7 +296,6 @@ export default Index;
 
 ```JS
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 
 class App extends Component {
     constructor(props) {
@@ -317,7 +319,6 @@ export default App;
 
 ```JS
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 
 class App extends Component {
 
@@ -341,11 +342,10 @@ export default App;
 
 ```JS
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 
 class App extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = { like: 0 };
     } 
 
@@ -365,6 +365,32 @@ class App extends Component {
 export default App;
 ```
 
+```JS
+import React, { Component } from 'react';
+
+class App extends Component {
+    constructor() {
+        super();
+        this.state = { messages: ['JS', 'React'] };
+    } 
+
+    addMessages = () => {
+        const updateMessages = [...this.state.messages, 'Polymer']
+        this.setState({ messages: [...updateMessages] })
+    }
+
+    render() {
+        return (
+            <div className="app">
+                <button onClick={this.addMessages}>add</button>
+                {console.log(this.state.messages) /* ['JS', 'React', 'Polymer'] */}
+            </div>
+        );
+    }
+}
+
+export default App;
+```
 ---
 
 ## Bindings
@@ -427,7 +453,7 @@ export default MyComponent;
 
 ### Syntax
 
-- Basic syntax
+  #### Basic syntax
     ```JS
     ( param1, param2, ..., paramN ) => { statements }
 
@@ -439,7 +465,7 @@ export default MyComponent;
 
     () => { statements }
     ```
-- Advanced syntax
+  #### Advanced Syntax
     ```JS
     params => ({ foo: bar }) /* return an object literal expression */
 
@@ -450,3 +476,35 @@ export default MyComponent;
     const sum = ( [num1, num2] = [1, 2], { x: num3 } = { x : num1 + num2 } ) => num1 + num2 + num3  /*  destructuring within the parameter list */
     sum() /* 6 */
     ```
+
+---
+
+## Spread Operations
+
+### Spread in array literals
+```JS
+const basics = [ 'JS', 'HTML', 'CSS' ];
+const frameworks = [ 'React', 'Vue' ];
+const web = [ ...basics, ...frameworks ]; 
+console.log(web); /* ['JS', 'HTML', 'CSS', 'React', 'Vue'] */
+
+const addWeb = [ ...web, 'al11' ];
+console.log(addWeb); /* ['JS', 'HTML', 'CSS', 'React', 'Vue', 'al11'] */
+```
+
+### Spread in object literals
+```JS
+const basics = { behavior: 'JS', markup: 'HTML' };
+const style = 'CSS';
+const web = { ...basics, style }; 
+console.log(web); /* { behavior: "JS", markup: "HTML", style: "CSS" } */
+
+const devFront = { framework: 'react', event: 'React Conf' };
+const devBack = { framework: 'django', state: 'cool' };
+
+const cloneDev = { ...devFront };
+console.log(cloneDev); /* { framework: 'react', event: 'React Conf' } */
+
+const merged = { ...devFront, ...devBack };
+console.log(cloneDev); /* { framework: 'django', event: 'React Conf', state: 'cool' } */
+```
