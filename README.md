@@ -56,6 +56,7 @@
     $ npm install react react-dom
     ```
  
+ **[⬆ back to top](#table-of-contents)**
 ---
  
 ## No configuration
@@ -80,7 +81,8 @@ Just start with React no configuration (run the scripts bellow in your terminal)
     ```
 * Go to the browser by `URL` bellow and see your beautiful application   
     - [localhost:8080](http://localhost:8080)
-    
+
+**[⬆ back to top](#table-of-contents)** 
 ---
 
 ## ReactDOM
@@ -92,6 +94,7 @@ import ReactDOM from 'react-dom';
 ReactDOM.render( <h1>Hello React Ladies</h1>, document.getElementById('root') );
 ```
 
+**[⬆ back to top](#table-of-contents)**
 ---
 
 ## Functional Stateless Component
@@ -120,6 +123,7 @@ const Button = ({ onClick, className = 'button', children  }) =>
 export default Button;
 ```
 
+**[⬆ back to top](#table-of-contents)**
 ---
 
 ## Class Component
@@ -162,6 +166,7 @@ export default MyComponent;
 
 ```
 
+**[⬆ back to top](#table-of-contents)**
 --- 
 
 ## Composition
@@ -198,6 +203,7 @@ ReactDOM.render(
     document.getElementById(´root´)
 );
 
+**[⬆ back to top](#table-of-contents)**
 ```
 
 ## Module component
@@ -243,6 +249,7 @@ ReactDOM.render (
 
 ```
 
+**[⬆ back to top](#table-of-contents)**
 ---
 
 ## Hot Module Replacement
@@ -262,6 +269,7 @@ if (module.hot) {
 }
 ```
 
+**[⬆ back to top](#table-of-contents)**
 ---
 
 ## Props
@@ -292,6 +300,9 @@ class Index extends Component {
 export default Index;
 ```
 
+**[⬆ back to top](#table-of-contents)**
+---
+
 ## State
 
 ```JS
@@ -315,6 +326,9 @@ class App extends Component {
 export default App;
 ```
 
+**[⬆ back to top](#table-of-contents)**
+---
+
 ## Methods and Events
 
 ```JS
@@ -337,6 +351,9 @@ class App extends Component {
 
 export default App;
 ```
+
+**[⬆ back to top](#table-of-contents)**
+---
 
 ## State manipulation
 
@@ -391,8 +408,11 @@ class App extends Component {
 
 export default App;
 ```
----
 
+
+**[⬆ back to top](#table-of-contents)**
+---
+d
 ## Bindings
 
 ```JS
